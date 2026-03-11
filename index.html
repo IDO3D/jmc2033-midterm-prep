@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JMC 2033 · Midterm Prep · University of Oklahoma</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+:root{--crimson:#841617;--deep:#5C0E0F;--gold:#D4AF37;--ink:#0B0B0B;--paper:#F8F5F2;--paperd:#EDE9E4;--gray:#8A8278;--lgray:#C8C4BE;--white:#FFFFFF;--ok:#2D6A4F;--bad:#841617;--t:all 0.3s cubic-bezier(.4,0,.2,1);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Source Serif 4',Georgia,serif;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+header{background:var(--ink);position:sticky;top:0;z-index:100;border-bottom:3px solid var(--crimson);}
+.htop{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid rgba(255,255,255,.08);}
+.mast{font-family:'Playfair Display',serif;font-size:1.42rem;font-weight:900;color:var(--paper);letter-spacing:.02em;}
+.mast span{color:var(--gold);}
+.einfo{font-family:'IBM Plex Mono',monospace;font-size:.59rem;color:var(--lgray);text-align:right;line-height:1.7;}
+.sbar{display:flex;align-items:center;gap:16px;padding:7px 28px;background:var(--ink);flex-wrap:wrap;}
+.si{display:flex;align-items:center;gap:7px;}
+.sl{font-family:'IBM Plex Mono',monospace;font-size:.56rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gray);}
+.sv{font-family:'IBM Plex Mono',monospace;font-size:.87rem;font-weight:500;color:var(--gold);}
+.sd{width:1px;height:16px;background:rgba(255,255,255,.1);}
+.stk{font-family:'IBM Plex Mono',monospace;font-size:.69rem;background:var(--crimson);color:var(--paper);padding:2px 9px;border-radius:2px;margin-left:auto;}
+.rbar{background:var(--deep);display:flex;align-items:center;padding:0 12px;border-bottom:1px solid rgba(212,175,55,.26);overflow-x:auto;scrollbar-width:none;}
+.rbar::-webkit-scrollbar{display:none;}
+.rlbl{font-family:'IBM Plex Mono',monospace;font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,245,242,.38);padding:0 9px 0 3px;white-space:nowrap;flex-shrink:0;}
+.rl{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--gold);text-decoration:none;padding:8px 12px;border-left:1px solid rgba(255,255,255,.1);transition:var(--t);display:flex;align-items:center;gap:5px;white-space:nowrap;}
+.rl:hover{background:rgba(212,175,55,.11);color:#fff;}
+nav{background:var(--crimson);display:flex;overflow-x:auto;scrollbar-width:none;}
+nav::-webkit-scrollbar{display:none;}
+.nb{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(248,245,242,.66);background:transparent;border:none;padding:12px 19px;cursor:pointer;transition:var(--t);white-space:nowrap;border-bottom:3px solid transparent;}
+.nb:hover{color:var(--paper);background:rgba(255,255,255,.07);}
+.nb.active{color:var(--gold);border-bottom:3px solid var(--gold);background:rgba(0,0,0,.14);}
+main{max-width:820px;margin:0 auto;padding:32px 20px 80px;}
+.panel{display:none;}.panel.active{display:block;}
+.shd{margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--lgray);}
+.seb{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--crimson);margin-bottom:5px;}
+.stl{font-family:'Playfair Display',serif;font-size:1.95rem;font-weight:700;line-height:1.15;}
+.ssb{font-size:.9rem;color:var(--gray);margin-top:5px;font-style:italic;}
+.fcctl{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px;}
+.fcp{font-family:'IBM Plex Mono',monospace;font-size:.71rem;color:var(--gray);}
+.fcs{perspective:1000px;height:290px;margin-bottom:19px;cursor:pointer;}
+.fci{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.fci.fl{transform:rotateY(180deg);}
+.fcf{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;text-align:center;}
+.fcfr{background:var(--ink);border:1px solid rgba(255,255,255,.06);}
+.fcfr::before{content:'';position:absolute;top:10px;left:10px;right:10px;bottom:10px;border:1px solid rgba(212,175,55,.16);border-radius:2px;pointer-events:none;}
+.fcbk{background:var(--deep);transform:rotateY(180deg);border:1px solid rgba(212,175,55,.2);}
+.ctag{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.cq{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--paper);line-height:1.35;}
+.ca{font-size:.97rem;color:var(--paper);line-height:1.75;font-weight:300;}
+.chi{font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(212,175,55,.4);margin-top:14px;letter-spacing:.1em;}
+.fcnav{display:flex;gap:8px;justify-content:center;}
+.btn{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:10px 21px;border:1px solid var(--lgray);background:transparent;color:var(--ink);cursor:pointer;transition:var(--t);border-radius:2px;}
+.btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+.btnp{background:var(--crimson);color:var(--paper);border-color:var(--crimson);}
+.btnp:hover{background:var(--deep);border-color:var(--deep);color:var(--paper);}
+.qcard{background:var(--white);border:1px solid var(--lgray);border-radius:4px;padding:32px;margin-bottom:14px;box-shadow:0 2px 12px rgba(11,11,11,.05);}
+.qmeta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.qcat{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--crimson);border:1px solid var(--crimson);padding:2px 8px;border-radius:2px;}
+.qnum{font-family:'IBM Plex Mono',monospace;font-size:.61rem;color:var(--gray);}
+.qtxt{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:600;line-height:1.44;color:var(--ink);margin-bottom:20px;}
+.agrid{display:grid;gap:8px;}
+.abtn{display:flex;align-items:flex-start;gap:11px;padding:11px 14px;border:1.5px solid var(--paperd);background:var(--paper);border-radius:3px;cursor:pointer;transition:var(--t);text-align:left;font-family:'Source Serif 4',serif;font-size:.9rem;color:var(--ink);line-height:1.5;}
+.abtn:hover:not(:disabled){border-color:var(--crimson);background:rgba(132,22,23,.04);}
+.abtn.correct{border-color:var(--ok);background:rgba(45,106,79,.08);color:var(--ok);}
+.abtn.incorrect{border-color:var(--bad);background:rgba(132,22,23,.08);color:var(--bad);}
+.altr{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:500;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;border:1px solid currentColor;border-radius:2px;flex-shrink:0;margin-top:1px;opacity:.58;}
+.exp{display:none;background:var(--ink);color:var(--paper);border-radius:3px;padding:16px 20px;margin-top:9px;}
+.exp.show{display:block;animation:fi .27s ease;}
+.explbl{font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+.exptxt{font-size:.88rem;line-height:1.74;font-weight:300;}
+@keyframes fi{from{opacity:0;transform:translateY(-5px);}to{opacity:1;transform:translateY(0);}}
+.nxbtn{margin-top:12px;display:none;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:11px 23px;background:var(--crimson);color:var(--paper);border:none;border-radius:2px;cursor:pointer;transition:var(--t);}
+.nxbtn:hover{background:var(--deep);}
+.nxbtn.show{display:inline-block;}
+.epbar{height:3px;background:var(--lgray);border-radius:2px;margin-bottom:21px;overflow:hidden;}
+.epfill{height:100%;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width .4s ease;border-radius:2px;}
+.estats{display:flex;gap:17px;margin-bottom:17px;flex-wrap:wrap;}
+.est{font-family:'IBM Plex Mono',monospace;font-size:.61rem;color:var(--gray);}
+.est strong{color:var(--ink);font-size:.79rem;}
+.rsc{text-align:center;padding:50px 32px;background:var(--ink);border-radius:4px;display:none;}
+.rsc.show{display:block;animation:fi .44s ease;}
+.rg{font-family:'Playfair Display',serif;font-size:5.2rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:6px;}
+.rs{font-family:'IBM Plex Mono',monospace;font-size:1.02rem;color:var(--paper);margin-bottom:16px;}
+.rm{font-style:italic;color:var(--lgray);font-size:.94rem;margin-bottom:24px;}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:9px;margin-bottom:24px;}
+.mcard{background:var(--white);border:1px solid var(--lgray);padding:12px 14px;border-radius:3px;}
+.msym{font-family:'IBM Plex Mono',monospace;font-size:1.15rem;color:var(--crimson);margin-bottom:3px;}
+.mname{font-size:.78rem;font-weight:700;margin-bottom:2px;}
+.mdesc{font-size:.71rem;color:var(--gray);font-style:italic;}
+.sep{height:1px;background:var(--lgray);margin:22px 0;}
+.ibox{background:var(--paperd);border-left:3px solid var(--crimson);padding:12px 16px;border-radius:0 3px 3px 0;margin-bottom:18px;font-size:.85rem;line-height:1.64;}
+.ibox strong{color:var(--deep);}
+/* SUMMARY SCREEN */
+.sum-screen{display:none;animation:fi .4s ease;}
+.sum-screen.show{display:block;}
+.sum-hero{background:var(--ink);border-radius:4px;padding:36px 32px;text-align:center;margin-bottom:20px;}
+.sum-grade{font-family:'Playfair Display',serif;font-size:4.8rem;font-weight:900;color:var(--gold);line-height:1;}
+.sum-pts{font-family:'IBM Plex Mono',monospace;font-size:1rem;color:var(--paper);margin:8px 0 4px;}
+.sum-msg{font-style:italic;color:var(--lgray);font-size:.9rem;margin-bottom:20px;}
+.sum-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:6px;}
+.sum-pill{font-family:'IBM Plex Mono',monospace;font-size:.62rem;padding:5px 14px;border-radius:20px;letter-spacing:.07em;}
+.pill-ok{background:rgba(45,106,79,.18);color:#2D6A4F;border:1px solid rgba(45,106,79,.35);}
+.pill-miss{background:rgba(132,22,23,.14);color:var(--crimson);border:1px solid rgba(132,22,23,.3);}
+.sum-section{margin-bottom:14px;}
+.sum-sec-title{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;padding:10px 16px;border-radius:3px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.sum-sec-ok{background:rgba(45,106,79,.1);color:#2D6A4F;}
+.sum-sec-miss{background:rgba(132,22,23,.08);color:var(--crimson);}
+.sum-item{background:var(--white);border:1px solid var(--lgray);border-radius:3px;padding:14px 16px;margin-bottom:8px;}
+.sum-item.missed{border-color:rgba(132,22,23,.3);border-left:3px solid var(--crimson);}
+.sum-item.correct{border-color:rgba(45,106,79,.3);border-left:3px solid #2D6A4F;}
+.sum-q{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:600;line-height:1.4;margin-bottom:8px;}
+.sum-row{display:flex;gap:8px;margin-bottom:4px;align-items:flex-start;font-size:.82rem;line-height:1.45;}
+.sum-lbl{font-family:'IBM Plex Mono',monospace;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;margin-top:1px;}
+.lbl-you-ok{background:rgba(45,106,79,.15);color:#2D6A4F;}
+.lbl-you-miss{background:rgba(132,22,23,.12);color:var(--crimson);}
+.lbl-correct{background:rgba(212,175,55,.18);color:#9a7c1a;}
+.sum-ans{color:var(--ink);}
+.sum-exp-txt{font-size:.8rem;color:var(--gray);line-height:1.6;margin-top:6px;font-style:italic;padding-top:6px;border-top:1px solid var(--paperd);}
+.sum-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+@media(max-width:640px){.htop{padding:9px 12px;}.sbar{padding:6px 12px;gap:9px;}main{padding:16px 12px 60px;}.qcard{padding:16px 13px;}.stl{font-size:1.4rem;}.fcs{height:238px;}.cq{font-size:1.02rem;}.mast{font-size:.97rem;}.si:nth-child(n+4){display:none;}.sum-grade{font-size:3.6rem;}.sum-hero{padding:24px 18px;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="htop">
+    <div class="mast">JMC <span>2033</span> · Midterm Prep</div>
+    <div class="einfo">University of Oklahoma · Spring 2026<br>Midterm: March 11–12 · ~50–60 questions</div>
+  </div>
+  <div class="sbar">
+    <div class="si"><span class="sl">Score</span><span class="sv" id="hS">0</span></div>
+    <div class="sd"></div>
+    <div class="si"><span class="sl">Best</span><span class="sv" id="hB">0</span></div>
+    <div class="sd"></div>
+    <div class="si"><span class="sl">Attempts</span><span class="sv" id="hA">0</span></div>
+    <div class="stk">🔥 Streak: <span id="hST">0</span></div>
+  </div>
+  <div class="rbar">
+    <span class="rlbl">Quick Access</span>
+    <a class="rl" href="https://www.apstylebook.com" target="_blank" rel="noopener">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      AP Stylebook Online
+    </a>
+    <a class="rl" href="https://www.amazon.com/Working-Words-Handbook-Media-Writing/dp/0205063675" target="_blank" rel="noopener">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Working With Words
+    </a>
+    <a class="rl" href="https://canvas.ou.edu" target="_blank" rel="noopener">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      Canvas (OU)
+    </a>
+    <a class="rl" href="https://www.ou.edu/accessandopportunity/testing-center/policies-and-procedures" target="_blank" rel="noopener">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      OU Testing Center
+    </a>
+  </div>
+  <nav>
+    <button class="nb active" onclick="showPanel('fc',this)">Flashcards</button>
+    <button class="nb" onclick="showPanel('ce',this)">Copyediting Trainer</button>
+    <button class="nb" onclick="showPanel('ab',this)">AP vs Broadcast</button>
+    <button class="nb" onclick="showPanel('ex',this)">Mock Exam</button>
+  </nav>
+</header>
+<main>
+
+<!-- FLASHCARDS -->
+<div id="panel-fc" class="panel active">
+  <div class="shd">
+    <div class="seb">Active Recall · Module 01</div>
+    <h1 class="stl">Key Concepts</h1>
+    <p class="ssb">Click a card to flip it. All content sourced directly from your study guide (THT Chs. 1–7 + lectures).</p>
+  </div>
+  <div class="fcctl">
+    <span class="fcp" id="fc-prog">Card 1 of 30</span>
+    <button class="btn btnp" onclick="shuffleCards()">Shuffle Deck</button>
+  </div>
+  <div class="fcs" onclick="flipCard()">
+    <div class="fci" id="fci">
+      <div class="fcf fcfr">
+        <div class="ctag" id="fc-tag">Concept</div>
+        <div class="cq" id="fc-q">Loading…</div>
+        <div class="chi">↺ Click to reveal answer</div>
+      </div>
+      <div class="fcf fcbk">
+        <div class="ctag">Answer</div>
+        <div class="ca" id="fc-a">Loading…</div>
+      </div>
+    </div>
+  </div>
+  <div class="fcnav">
+    <button class="btn" onclick="prevCard()">← Prev</button>
+    <button class="btn" onclick="flipCard()">Flip</button>
+    <button class="btn" onclick="nextCard()">Next →</button>
+  </div>
+</div>
+
+<!-- COPYEDITING -->
+<div id="panel-ce" class="panel">
+  <div class="shd">
+    <div class="seb">Practice · Module 02</div>
+    <h1 class="stl">Copyediting Trainer</h1>
+    <p class="ssb">Marks from Working With Words (back page) and the AP Stylebook. Either variation may appear on the exam.</p>
+  </div>
+  <div class="ibox"><strong>Exam note:</strong> The study guide says to know copyediting marks from both <em>Working With Words</em> (back page) and the AP Stylebook. Marks are mostly the same — <strong>either variation is acceptable on the exam</strong>.</div>
+  <div class="mgrid">
+    <div class="mcard"><div class="msym">∧ or ^</div><div class="mname">Insert</div><div class="mdesc">Add a word, letter, or punctuation at the caret</div></div>
+    <div class="mcard"><div class="msym">⌒ or )</div><div class="mname">Join / Close Up</div><div class="mdesc">Eliminate space between letters or words</div></div>
+    <div class="mcard"><div class="msym">℘ or ẟ</div><div class="mname">Delete</div><div class="mdesc">Remove the marked word, letter, or punctuation</div></div>
+    <div class="mcard"><div class="msym">tr</div><div class="mname">Transpose</div><div class="mdesc">Switch order of two adjacent letters or words</div></div>
+    <div class="mcard"><div class="msym">lc or /</div><div class="mname">Make Lowercase</div><div class="mdesc">Change a capital letter to lowercase</div></div>
+    <div class="mcard"><div class="msym">CAP or ≡</div><div class="mname">Capitalize</div><div class="mdesc">Change to uppercase / capitalize the word</div></div>
+    <div class="mcard"><div class="msym">abbr</div><div class="mname">Abbreviate</div><div class="mdesc">Replace full word with standard abbreviation</div></div>
+    <div class="mcard"><div class="msym">sp</div><div class="mname">Spell Out</div><div class="mdesc">Write full word instead of abbreviation or numeral</div></div>
+    <div class="mcard"><div class="msym"># or fig</div><div class="mname">Make Figures</div><div class="mdesc">Convert spelled-out number to a numeral</div></div>
+    <div class="mcard"><div class="msym">⌇ or #</div><div class="mname">Separate Words</div><div class="mdesc">Insert a space between accidentally joined words</div></div>
+    <div class="mcard"><div class="msym">stet</div><div class="mname">Let It Stand</div><div class="mdesc">Ignore the correction; restore the original text</div></div>
+    <div class="mcard"><div class="msym">¶</div><div class="mname">New Paragraph</div><div class="mdesc">Begin a new paragraph at this point</div></div>
+  </div>
+  <div class="sep"></div>
+  <div class="qcard">
+    <div class="qmeta"><span class="qcat" id="ce-cat">Copyediting</span><span class="qnum" id="ce-num">Q 1 of 12</span></div>
+    <div class="qtxt" id="ce-q">Loading…</div>
+    <div class="agrid" id="ce-ans"></div>
+    <div class="exp" id="ce-exp"><div class="explbl">Editorial Note</div><div class="exptxt" id="ce-expt"></div></div>
+  </div>
+  <button class="nxbtn" id="ce-nxt" onclick="nextCE()">Next Question →</button>
+  <div class="sum-screen" id="ce-sum">
+    <div class="sum-hero">
+      <div class="sum-grade" id="ce-sum-pct">—</div>
+      <div class="sum-pts" id="ce-sum-pts"></div>
+      <div class="sum-msg" id="ce-sum-msg"></div>
+      <div class="sum-pills" id="ce-sum-pills"></div>
+    </div>
+    <div id="ce-sum-list"></div>
+    <div class="sum-actions">
+      <button class="btn btnp" onclick="restartCE()">Retake Quiz</button>
+      <button class="btn" onclick="showPanel('ab',document.querySelectorAll('.nb')[2])">AP vs Broadcast →</button>
+    </div>
+  </div>
+</div>
+
+<!-- AP vs BROADCAST -->
+<div id="panel-ab" class="panel">
+  <div class="shd">
+    <div class="seb">Style Guide · Module 03</div>
+    <h1 class="stl">AP vs. Broadcast Style</h1>
+    <p class="ssb">Know both styles cold — dates, addresses, times, numbers, abbreviations, and script rules.</p>
+  </div>
+  <div class="ibox"><strong>Key rules (study guide):</strong> Broadcast scripts do <em>not</em> split words across lines, split sentences across pages, use symbols, or use abbreviations. AP adds periods: a.m. and p.m. Broadcast writes out "in the morning" / "in the afternoon."</div>
+  <div class="qcard">
+    <div class="qmeta"><span class="qcat" id="ab-cat">Style</span><span class="qnum" id="ab-num">Q 1 of 14</span></div>
+    <div class="qtxt" id="ab-q">Loading…</div>
+    <div class="agrid" id="ab-ans"></div>
+    <div class="exp" id="ab-exp"><div class="explbl">Style Guide Note</div><div class="exptxt" id="ab-expt"></div></div>
+  </div>
+  <button class="nxbtn show" id="ab-nxt" onclick="nextAB()">Next Question →</button>
+  <div class="sum-screen" id="ab-sum">
+    <div class="sum-hero">
+      <div class="sum-grade" id="ab-sum-pct">—</div>
+      <div class="sum-pts" id="ab-sum-pts"></div>
+      <div class="sum-msg" id="ab-sum-msg"></div>
+      <div class="sum-pills" id="ab-sum-pills"></div>
+    </div>
+    <div id="ab-sum-list"></div>
+    <div class="sum-actions">
+      <button class="btn btnp" onclick="restartAB()">Retake Quiz</button>
+      <button class="btn" onclick="showPanel('ex',document.querySelectorAll('.nb')[3])">Mock Exam →</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXAM -->
+<div id="panel-ex" class="panel">
+  <div class="shd">
+    <div class="seb">Assessment · Module 04</div>
+    <h1 class="stl">Mock Midterm Exam</h1>
+    <p class="ssb">50 questions · 2 points each · 100 points total · all study guide topics</p>
+  </div>
+  <div id="ex-start">
+    <div class="qcard" style="text-align:center;padding:40px 30px;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.59rem;letter-spacing:.15em;text-transform:uppercase;color:var(--crimson);margin-bottom:11px;">Ready to test your knowledge?</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:8px;">JMC 2033 Midterm Simulator</div>
+      <div style="font-size:.87rem;color:var(--gray);margin-bottom:21px;line-height:1.64;">50 questions covering: copyediting, news values, AP/broadcast style, SVO, ethics, attribution, sources, headlines, cutlines, inverted pyramid, interviewing, fact vs. inference vs. judgment, and the ABCs of writing.</div>
+      <button class="btn btnp" onclick="startExam()" style="font-size:.75rem;padding:12px 32px;">Begin Exam →</button>
+    </div>
+  </div>
+  <div id="ex-active" style="display:none;">
+    <div class="epbar"><div class="epfill" id="epf" style="width:0%"></div></div>
+    <div class="estats">
+      <div class="est">Question <strong id="eqn">1</strong> / 50</div>
+      <div class="est">Score <strong id="esc">0</strong> / 100</div>
+      <div class="est">Streak 🔥 <strong id="estr">0</strong></div>
+    </div>
+    <div class="qcard">
+      <div class="qmeta"><span class="qcat" id="e-cat">—</span><span class="qnum" id="e-num">Q 1 · 2 pts</span></div>
+      <div class="qtxt" id="e-q">Loading…</div>
+      <div class="agrid" id="e-ans"></div>
+      <div class="exp" id="e-exp"><div class="explbl">Explanation</div><div class="exptxt" id="e-expt"></div></div>
+    </div>
+    <button class="nxbtn" id="ex-nxt" onclick="nextEX()">Next Question →</button>
+  </div>
+  <div class="sum-screen" id="ex-res">
+    <div class="sum-hero">
+      <div class="sum-grade" id="rg">—</div>
+      <div class="sum-pts" id="rs">0 / 100</div>
+      <div class="sum-msg" id="rm"></div>
+      <div class="sum-pills" id="ex-sum-pills"></div>
+    </div>
+    <div id="ex-sum-list"></div>
+    <div class="sum-actions">
+      <button class="btn btnp" onclick="resetExam()">Retake Exam</button>
+    </div>
+  </div>
+</div>
+
+</main>
+<script>
+const FC=[
+  {tag:"Fill-in-Blank",q:"________ is the paramount quality of all media writing.",a:"ACCURACY. Every fact, name, date, and figure must be verified. One error destroys credibility. This is the single most important rule in journalism."},
+  {tag:"Fill-in-Blank",q:"________ needless words.",a:"CUT. Every word must earn its place. This is the B (Brevity) in the ABCs of good writing. Tight writing respects the reader's time and sharpens meaning."},
+  {tag:"Fill-in-Blank",q:"________ is the preferred verb of attribution.",a:"SAID. Neutral and invisible — it does not editorialize. Avoid 'stated,' 'explained,' 'admitted,' or 'commented' unless absolutely necessary."},
+  {tag:"Fill-in-Blank",q:"The natural order of the English language is __-__-__.",a:"S-V-O: Subject → Verb → Object. 'The mayor [S] signed [V] the bill [O].' Right-branching clauses add information after this core structure."},
+  {tag:"ABCs of Writing",q:"What are the ABCs of good writing?",a:"A = Accuracy (verify everything). B = Brevity (cut needless words). C = Clarity (write so your audience understands). These three principles guide all professional media writing."},
+  {tag:"Headlines",q:"What is the correct verb tense for a headline describing a past event?",a:"PRESENT TENSE. 'Mayor Signs Climate Bill' — not 'Mayor Signed.' Present tense creates immediacy even when the event already occurred."},
+  {tag:"Cutlines",q:"What tense is the FIRST sentence of a cutline?",a:"PRESENT TENSE. Describes the photo's action as happening now: 'Mayor Jane Smith signs the climate bill.'"},
+  {tag:"Cutlines",q:"What tense are ADDITIONAL sentences in a cutline?",a:"PAST TENSE. Additional sentences provide context: 'The bill passed the city council Tuesday.' Tense shift signals context vs. caption."},
+  {tag:"Cutlines",q:"What does the first line of a cutline do? The second line?",a:"First line (present tense): Identify who is shown and describe the action. Second line (past tense): Provide background or context about the event."},
+  {tag:"Attribution",q:"What does ATTRIBUTION do for the reader?",a:"Shows readers WHERE information came from so they can judge its reliability for themselves. Attribution is the journalism tool for transparency."},
+  {tag:"Attribution",q:"When is NO attribution needed?",a:"When YOU PERSONALLY OBSERVE SOMETHING. If you witness it firsthand, you are the source — no attribution is needed for your own direct observations."},
+  {tag:"Attribution",q:"When must you attribute information ALWAYS AND IMMEDIATELY?",a:"When information is ACCUSATORY or OPINIONATED. Any claim that could harm a reputation, or any statement of opinion, must be attributed immediately."},
+  {tag:"Sources",q:"What is the difference between PRIMARY and SECONDARY sources?",a:"PRIMARY: Firsthand — eyewitnesses, official documents, direct interviews. SECONDARY: Reports on a primary source (e.g., a news article quoting an original government report)."},
+  {tag:"Interviewing",q:"What is the difference between OPEN-ENDED and CLOSED questions?",a:"OPEN-ENDED: Invites explanation — 'How?' 'Why?' 'Describe.' CLOSED: Yes/no answer. Open-ended questions yield richer, more quotable responses."},
+  {tag:"Fact vs. Inference",q:"What is the difference between a FACT, INFERENCE, and JUDGMENT?",a:"FACT: Verifiable and observable ('Temp is 98°F'). INFERENCE: Conclusion drawn from facts ('It seems hot'). JUDGMENT: Value statement ('Too hot to exercise'). Only facts belong in news without attribution."},
+  {tag:"Fact vs. Inference",q:"To be factual, information must be ________.",a:"VERIFIABLE. A fact can be observed, measured, or independently confirmed. If not verifiable, it is an inference or claim requiring attribution."},
+  {tag:"News Values",q:"Name all 8 interest elements (news values) from the study guide.",a:"1. Impact/Consequence · 2. Conflict · 3. Prominence/Fame · 4. Novelty/Oddity · 5. Proximity · 6. Timeliness · 7. Currency · 8. Human Interest. The first three are the most heavily tested."},
+  {tag:"Gatekeeping",q:"What does GATEKEEPING mean in journalism?",a:"The process by which editors decide which information becomes news and reaches the public. They act as filters — selecting what to publish, how to frame it, and what prominence to give it."},
+  {tag:"Ethics",q:"The current demographic reality in the U.S. is called ________.",a:"MULTICULTURALISM. Journalists must recognize and account for diverse backgrounds, perspectives, and identities. Connected to the Bias-related terms section in Working With Words."},
+  {tag:"Ethics",q:"What is the difference between NEWS and INFORMATION?",a:"All news is information, but not all information is news. News is timely, relevant, and of public interest — selected and verified through a journalistic gatekeeping process."},
+  {tag:"Broadcast",q:"What are the 4 C's of broadcast writing? (Plus the 2 extra C's)",a:"4 C's: Clarity, Conciseness, Color, Conversational. 2 extra C's: Credibility and Currency (timeliness). Broadcast writing is written for the EAR, not the eye."},
+  {tag:"Broadcast",q:"What is the 3-part dramatic unity structure of broadcast writing?",a:"1. Exposition (who, what, where, when). 2. Conflict (the problem or tension). 3. Resolution (the outcome or what's next). Gives broadcast stories a beginning, middle, and end."},
+  {tag:"Broadcast",q:"What does VO mean in a broadcast script? What about MS?",a:"VO = Voice Over (anchor reads while video plays). MS = Medium Shot (subject from waist up). Broadcast script abbreviations are tested on the exam."},
+  {tag:"Inverted Pyramid",q:"What is the inverted pyramid style of writing?",a:"A story structure that leads with the MOST IMPORTANT information (who, what, when, where, why, how) in descending order of importance. Editors can safely cut from the bottom."},
+  {tag:"Summary Lead",q:"What are the elements of a summary lead for a print story?",a:"Answers the 5 W's and H in the first paragraph: WHO did WHAT, WHEN, WHERE, WHY, and HOW. Lead with the most newsworthy element. Keep it to one or two tight sentences."},
+  {tag:"Headlines",q:"What are the THREE JOBS of a headline?",a:"1. Label the story (tell readers what it's about). 2. Attract readers (draw them in). 3. Help readers navigate the page (allow scanning). Headlines use present tense and active voice."},
+  {tag:"SVO",q:"What does 'right-branching clause' mean in relation to S-V-O?",a:"A right-branching clause adds information AFTER the S-V-O core: 'The mayor signed the bill, calling it historic.' Main idea first; modifiers branch to the right."},
+  {tag:"Quoting",q:"What should you quote? What should you NOT quote?",a:"QUOTE: Colorful language, strong opinion, emotional statements. DON'T QUOTE: Jibberish (confusing quotes) or bare facts. Don't quote facts — paraphrase them instead."},
+  {tag:"Writing Style",q:"How long are most paragraphs in media writing?",a:"ONE to TWO sentences. Short paragraphs aid readability for audiences who scan rather than read linearly."},
+  {tag:"Cardinal Rule",q:"What is the CARDINAL RULE of editing?",a:"LOOK EVERYTHING UP. Never assume you know the correct spelling, title, fact, or style rule. Verify every detail — names, dates, numbers, titles, addresses — in the AP Stylebook and Working With Words."}
+];
+
+const CE=[
+  {q:"A reporter writes: 'The govenment passed the bill.' Which mark corrects the misspelling?",options:["tr (transpose — letters are in wrong order)","sp (spell out)","∧ (insert a missing letter)","℘ (delete)"],correct:0,exp:"'tr' marks a transposition — two letters are in the wrong order. In 'govenment,' the 'n' and 'r' are swapped; correcting gives 'government.' Both Working With Words and the AP Stylebook use this mark."},
+  {q:"'New York city' appears in a story. Which mark is needed on 'city'?",options:["CAP or ≡ (capitalize — it's a proper noun)","lc (lowercase)","tr (transpose)","sp (spell out)"],correct:0,exp:"'New York City' is a proper noun — all three words capitalized. The CAP or triple-underline (≡) mark signals 'city' should be capitalized. Covered in Chapter 2 of the THT (capitalization section)."},
+  {q:"A story reads 'fifteen people were injured.' AP style requires numerals above nine. What mark is used?",options:["# or 'fig' (convert to numeral → '15')","sp (spell out)","abbr (abbreviate)","lc (lowercase)"],correct:0,exp:"# or 'fig' converts a spelled-out number to a numeral: 'fifteen' → '15'. AP style: spell out one through nine, use numerals for 10 and above. Addresses, ages, and percentages always use numerals."},
+  {q:"An editor wants 'St.' spelled out fully. What mark is used?",options:["sp (spell out → 'Street')","abbr (abbreviate)","# (to figure)","CAP (capitalize)"],correct:0,exp:"'sp' tells the writer to write the full word: 'St.' → 'Street.' Without a house number, AP style requires the full word. The sp mark appears in both Working With Words and the AP Stylebook."},
+  {q:"A reporter writes 'She ran quikly.' What mark is needed?",options:["∧ (insert missing letter 'c' → 'quickly')","tr (transpose)","℘ (delete)","# (to figure)"],correct:0,exp:"The caret (∧) insert mark is used when a letter is missing. Write the missing 'c' above the caret. The correct spelling is 'quickly.' Standard insert mark in both reference books."},
+  {q:"Which mark eliminates an unwanted space between parts of a word (e.g., 'quick ly')?",options:["⌒ or ) — close up / join","⌇ or # — separate","∧ — insert","tr — transpose"],correct:0,exp:"The close-up mark (⌒ or parenthesis-style arc) eliminates an unwanted space. Use it when letters or words were accidentally split apart and need to be joined."},
+  {q:"In broadcast copy, a reporter writes 'Pres. Biden addressed the crowd.' What correction is needed?",options:["Spell it out: 'President Biden' — broadcast never abbreviates","Use all caps: PRES. BIDEN","Circle for clarification","No correction needed"],correct:0,exp:"Broadcast scripts NEVER use abbreviations. The study guide states this explicitly. 'Pres.' must be 'President' so the anchor can read it naturally without hesitation."},
+  {q:"Which mark signals that two accidentally joined words need a space (e.g., 'thecat')?",options:["⌇ or # — separate words","⌒ — close up","∧ — insert","tr — transpose"],correct:0,exp:"The separation mark (⌇ or # between words) tells the typesetter to insert a space: 'thecat' → 'the cat.' The # symbol has dual use: 'space here' (separate) and 'convert to numeral' depending on context."},
+  {q:"The copy reads: 'completely destroyed.' What copyediting action is needed?",options:["Delete 'completely' — redundant; 'destroyed' implies totality","Change to 'fully demolished'","Capitalize 'Completely'","Add attribution"],correct:0,exp:"'Completely destroyed' is redundant — destroyed already means total. Violates the B (Brevity) in the ABCs. The delete mark (℘) goes over 'completely.' Cut needless words."},
+  {q:"The cardinal rule of editing says:",options:["Look everything up","Trust the reporter's notes","Follow the majority of sources","Edit as quickly as possible"],correct:0,exp:"The study guide: 'The cardinal rule of editing is LOOK EVERYTHING UP.' Never assume. Verify all names, titles, facts, dates, and style rules in the AP Stylebook or Working With Words."},
+  {q:"What does the 'stet' copyediting mark mean?",options:["Let it stand — ignore the correction, restore original","Delete the marked text","Transpose the marked words","Spell out the marked abbreviation"],correct:0,exp:"'Stet' is Latin for 'let it stand.' It tells the typesetter to disregard a previously marked correction and keep the original text. Dots are often placed under the text to reinforce 'stet.'"},
+  {q:"When does the 'sp' (spell out) mark apply?",options:["When an abbreviation or numeral should be written out in full","When a word is misspelled","When a number should become a numeral","When a letter needs transposing"],correct:0,exp:"'sp' means spell out the full word: '3rd' → 'third'; 'Dr.' → 'Doctor'; 'St.' → 'Street.' Opposite of the # or abbr mark. Used in both Working With Words and the AP Stylebook."}
+];
+
+const AB=[
+  {q:"Which format is correct AP style for a date?",options:["Feb. 7, 1964","February 7th, 1964","Feb 7 1964","February 7 1964"],correct:0,exp:"AP abbreviates months with a specific date: Jan., Feb., Aug., Sept., Oct., Nov., Dec. Format: Month Day, Year — with a comma after the day. No ordinal suffix (no 'th'). March, April, May, June, July are never abbreviated."},
+  {q:"Which date format is correct BROADCAST style?",options:["February 7th, 1964","Feb. 7, 1964","02/07/1964","February 7, 1964"],correct:0,exp:"Broadcast writes dates fully and conversationally, often with ordinal suffix (7th) so the anchor reads naturally. The study guide gives 'February 7th, 1964' as the broadcast example. No abbreviations ever."},
+  {q:"Which address format is correct AP style?",options:["1060 W. Addison St.","1060 West Addison Street","10-60 West Addison Street","1060 West Addison St"],correct:0,exp:"AP: with a house number, abbreviate directional modifiers (W., N., S., E.) and street suffixes (St., Ave., Blvd., Dr.). The study guide gives '1060 W. Addison St.' as the AP example."},
+  {q:"Which address format is correct BROADCAST style?",options:["10-60 West Addison Street","1060 W. Addison St.","1060 West Addison Street","1060 W Addison Street"],correct:0,exp:"Broadcast spells everything out and hyphenates the number: '10-60 West Addison Street.' The hyphen guides pronunciation — 'ten-sixty.' No abbreviations. This is the study guide's exact broadcast example."},
+  {q:"Does AP style add periods to 'am' and 'pm'?",options:["Yes — a.m. and p.m. (lowercase with periods)","No — am and pm","Only for p.m.","Only in headlines"],correct:0,exp:"YES. AP uses lowercase with periods: a.m. and p.m. The study guide directly asks this and flags it as a tested item. Always lowercase, always with periods."},
+  {q:"How does BROADCAST writing handle a.m. and p.m.?",options:["Write out in words: 'in the morning' or 'in the afternoon/evening'","Use a.m. and p.m. with periods","Use AM and PM in caps","Use am and pm without periods"],correct:0,exp:"Broadcast avoids all abbreviations and symbols. Anchors say 'in the morning' or 'in the afternoon.' The study guide specifically asks this and the answer is: write it out in words."},
+  {q:"Broadcast scripts do NOT do which of the following?",options:["All of the below — split words across lines, split sentences across pages, use symbols, use abbreviations","Only use abbreviations","Only use symbols","Only split sentences across pages"],correct:0,exp:"The study guide lists four broadcast 'do not' rules: (1) no splitting words across lines, (2) no splitting sentences across pages, (3) no symbols, (4) no abbreviations. All four apply — all of the below."},
+  {q:"What is the purpose of writing in AP style?",options:["To create uniform, consistent style across all news organizations","To make writing more formal and academic","To follow broadcast conventions","To eliminate copyediting"],correct:0,exp:"AP style creates uniformity so copy from any wire service or newsroom is consistent without reformatting. It is a shared professional standard across all outlets."},
+  {q:"Which is the correct AP style for a time on the hour?",options:["2 p.m.","2:00 PM","2:00 p.m.","2 PM"],correct:0,exp:"AP: numerals, lowercase a.m./p.m. with periods, omit :00 when on the hour. '2 p.m.' is correct. Use '2:30 p.m.' when not on the hour."},
+  {q:"In AP style, a formal title DIRECTLY BEFORE a name is:",options:["Capitalized: 'President Biden'","Lowercase: 'president Biden'","Always abbreviated","Always omitted"],correct:0,exp:"AP capitalizes formal titles directly before a name: President Biden, Mayor Jones. Lowercase when after the name or standing alone: 'Joe Biden, the president, said…'"},
+  {q:"Numbers one through nine in AP style are:",options:["Spelled out: 'one,' 'five,' 'nine'","Numerals: '1,' '5,' '9'","Either is acceptable","Always Roman numerals"],correct:0,exp:"AP spells out one through nine; numerals for 10 and above. Always-numeral exceptions: ages, addresses, percentages, money, measurements."},
+  {q:"How should broadcast copy write the dollar amount '$2,000'?",options:["Two-thousand dollars (words, no symbol)","$2,000","2,000 dollars","USD 2,000"],correct:0,exp:"Broadcast never uses the dollar sign ($) — symbols cannot be spoken. Write out: 'two-thousand dollars.' The study guide states broadcast scripts do not use symbols."},
+  {q:"In AP style, a street address WITH NO house number uses:",options:["Full words: 'West Addison Street'","Abbreviations: 'W. Addison St.'","Postal code abbreviations","Numerals only"],correct:0,exp:"Without a house number, AP spells out everything: 'West Addison Street.' Abbreviations (W., St.) are only used when a house number is present."},
+  {q:"Which sentence is in correct BROADCAST style?",options:["The mayor says the budget will be cut by ten percent.","According to Mayor J. Smith, a 10% budget cut is forthcoming.","Mayor John Smith, in a Tues. statement, announced budget reductions.","Per the mayor's office: budget cuts of $2M are coming."],correct:0,exp:"Correct broadcast: short, conversational, present tense, no abbreviations, no percent symbol (10% → 'ten percent'), no dollar sign. The study guide contrasts writing for the ear vs. the eye."}
+];
+
+const EX=[
+  {cat:"FUNDAMENTALS",q:"'________ is the paramount quality of all media writing.' Fill in the blank.",options:["Accuracy","Creativity","Speed","Balance"],correct:0,exp:"Accuracy — the study guide fill-in-the-blank. Non-negotiable in journalism. One error destroys credibility."},
+  {cat:"FUNDAMENTALS",q:"'________ needless words.' Fill in the blank.",options:["Cut","Remove","Avoid","Eliminate"],correct:0,exp:"Cut — study guide fill-in-the-blank. This is the B (Brevity) in the ABCs of writing. Every word must earn its place."},
+  {cat:"ATTRIBUTION",q:"'________ is the preferred verb of attribution.' Fill in the blank.",options:["Said","Stated","Explained","Commented"],correct:0,exp:"Said — study guide fill-in-the-blank. Neutral, invisible, non-editorializing."},
+  {cat:"SVO",q:"'The natural order of the English language is __-__-__.' Fill in the blank.",options:["S-V-O (Subject-Verb-Object)","O-V-S","V-S-O","S-O-V"],correct:0,exp:"S-V-O — study guide fill-in-the-blank. 'The mayor [S] signed [V] the bill [O].'"},
+  {cat:"ABCs OF WRITING",q:"What does the 'A' in the ABCs of good writing stand for?",options:["Accuracy","Audience","Attribution","Analysis"],correct:0,exp:"Accuracy. ABCs: Accuracy, Brevity, Clarity — all directly tested in the study guide."},
+  {cat:"ABCs OF WRITING",q:"What does the 'B' in the ABCs of good writing stand for?",options:["Brevity","Balance","Broadcast","Byline"],correct:0,exp:"Brevity — cutting needless words. Respects readers' time and sharpens meaning."},
+  {cat:"ABCs OF WRITING",q:"What does the 'C' in the ABCs of good writing stand for?",options:["Clarity","Creativity","Context","Conciseness"],correct:0,exp:"Clarity — write so your audience understands without effort. Avoid jargon and complex constructions."},
+  {cat:"HEADLINES",q:"What is the correct verb tense for a headline describing a past event?",options:["Present tense","Past tense","Future tense","Passive voice"],correct:0,exp:"Present tense. The study guide explicitly tests this. 'Mayor Signs Climate Bill' — not 'Mayor Signed.'"},
+  {cat:"HEADLINES",q:"According to the Headlines & Cutlines PowerPoint, headlines have how many jobs?",options:["Three","Two","Four","One"],correct:0,exp:"Three: (1) Label the story, (2) Attract readers, (3) Help readers navigate the page."},
+  {cat:"CUTLINES",q:"What tense is the FIRST sentence of a cutline?",options:["Present tense","Past tense","Future tense","Varies"],correct:0,exp:"Present tense — describes the action in the photo as it's happening now."},
+  {cat:"CUTLINES",q:"What tense are ADDITIONAL sentences in a cutline?",options:["Past tense","Present tense","Future tense","Subjunctive"],correct:0,exp:"Past tense. Provides context or background. Directly tested in the study guide."},
+  {cat:"CUTLINES",q:"What should the SECOND LINE of a cutline do?",options:["Provide context or background (past tense)","Repeat the first line in different words","Predict what will happen next","Introduce a new topic"],correct:0,exp:"The second line provides context or background about the event in the photo, written in past tense."},
+  {cat:"ATTRIBUTION",q:"What does attribution do for the reader?",options:["Shows where information came from so readers can judge reliability","Makes the story appear longer","Replaces the need to verify","Creates a formal tone"],correct:0,exp:"Attribution shows readers where information came from so they can judge its reliability. Directly from the study guide definition."},
+  {cat:"ATTRIBUTION",q:"When is NO attribution needed?",options:["When you personally observe something","When the fact is widely known","When a press release confirms it","When two sources agree"],correct:0,exp:"Study guide: 'No attribution is needed when YOU PERSONALLY OBSERVE SOMETHING.' You are the source for your own observations."},
+  {cat:"ATTRIBUTION",q:"When must attribution be used ALWAYS AND IMMEDIATELY?",options:["When information is accusatory or opinionated","When the story involves a government official","When the story is about a crime","When two sources disagree"],correct:0,exp:"Study guide: 'Attribute information always and immediately when it's ACCUSATORY or OPINIONATED.' Highest legal and ethical risk."},
+  {cat:"SOURCE TYPES",q:"Which is an example of a PRIMARY source?",options:["An eyewitness to the event","A news article quoting an eyewitness","A book summarizing court records","A blog summarizing a government report"],correct:0,exp:"Primary sources provide firsthand accounts: eyewitnesses, official documents, government records, direct interviews."},
+  {cat:"SOURCE TYPES",q:"A news article that quotes an original government report is a:",options:["Secondary source","Primary source","Tertiary source","Anonymous source"],correct:0,exp:"A news article quoting a report is secondary. The government report is the primary source. Directly asked in the study guide."},
+  {cat:"INTERVIEWING",q:"Open-ended questions are preferable in interviews because they:",options:["Invite detailed, explanatory answers","Are easier to transcribe","Take less time","Limit the source's response"],correct:0,exp:"Open-ended questions (how, why, describe) encourage sources to elaborate and provide quotable material."},
+  {cat:"FACT vs INFERENCE",q:"Which statement is a FACT?",options:["The temperature is 98°F","It feels very hot today","It is too hot to exercise","The summer has been unusually warm"],correct:0,exp:"A fact is verifiable and observable. A temperature reading is measurable. The others are inference or judgment. To be factual, information must be verifiable."},
+  {cat:"FACT vs INFERENCE",q:"Which statement is an INFERENCE?",options:["The stock market will likely drop tomorrow based on today's data","The Dow fell 500 points today","Trading volume was 3 billion shares","The market closed at 4 p.m."],correct:0,exp:"An inference is a conclusion drawn from facts. Predicting tomorrow from today's data is inference. The study guide tests this distinction explicitly."},
+  {cat:"FACT vs INFERENCE",q:"Which statement is a JUDGMENT?",options:["The policy is harmful to workers","The policy cut wages by 10%","The policy passed 51–49","The policy affects 2 million workers"],correct:0,exp:"A judgment is a value statement. 'Harmful' reflects evaluation, not observable fact. Judgments require attribution."},
+  {cat:"FACT vs INFERENCE",q:"To be factual, information must be:",options:["Verifiable","Widely reported","From two sources","From an official source"],correct:0,exp:"Study guide: 'To be factual, information must be VERIFIABLE.' Can be observed, measured, or independently confirmed."},
+  {cat:"NEWS VALUES",q:"Which of these is NOT one of the 8 news values in the study guide?",options:["Objectivity","Impact","Proximity","Novelty/Oddity"],correct:0,exp:"Objectivity is a reporting principle, not a news value. The 8: Impact, Conflict, Prominence/Fame, Novelty/Oddity, Proximity, Timeliness, Currency, Human Interest."},
+  {cat:"NEWS VALUES",q:"A local earthquake injuring 50 people ranks highest on which news value?",options:["Proximity","Prominence","Currency","Novelty"],correct:0,exp:"Proximity — geographic and emotional closeness to the audience. Local events rank higher than distant ones of equal scale."},
+  {cat:"NEWS VALUES",q:"A new state law affecting every resident ranks highest on:",options:["Impact/Consequence","Proximity","Timeliness","Conflict"],correct:0,exp:"Impact/Consequence — how many people are affected and how significantly. The study guide lists Impact as the first and most important news value."},
+  {cat:"NEWS VALUES",q:"A story published the day a major law is signed ranks highest on:",options:["Timeliness","Impact","Proximity","Prominence"],correct:0,exp:"Timeliness — covering events as they happen. Fresh news is more valuable than yesterday's news."},
+  {cat:"GATEKEEPING",q:"Gatekeeping in journalism means:",options:["The process by which editors decide which information becomes news","Protecting confidential sources","Verifying all information before publishing","Interviewing multiple witnesses"],correct:0,exp:"Gatekeeping is the selection and framing process — deciding what becomes news and what prominence it receives. Directly asked in the study guide."},
+  {cat:"INVERTED PYRAMID",q:"In the inverted pyramid, what goes at the very top?",options:["The most important information — who, what, when, where, why, how","Background context and history","The reporter's editorial opinion","The names of all sources"],correct:0,exp:"The inverted pyramid leads with the 5 W's and H. Everything follows in descending order of importance."},
+  {cat:"INVERTED PYRAMID",q:"Why is the inverted pyramid structure useful for editors?",options:["Stories can be cut from the bottom without losing essential facts","It creates a dramatic narrative arc","It puts the most emotional content first","It is required by AP style"],correct:0,exp:"Editors can cut from the bottom safely because essential information is at the top. The primary practical advantage of inverted pyramid."},
+  {cat:"BROADCAST",q:"Broadcast writing is primarily written for:",options:["The ear","The eye","The web reader","The print page"],correct:0,exp:"Written for the EAR. The study guide explicitly contrasts 'writing for the eye' (print/digital) vs. 'writing for the ear' (broadcast)."},
+  {cat:"BROADCAST",q:"Which does a broadcast script NEVER do?",options:["Use abbreviations","Use active voice","Use short sentences","Use conversational language"],correct:0,exp:"Broadcast scripts never use abbreviations (or symbols, or split words across lines, or split sentences across pages). All four are explicit study guide 'do not' rules."},
+  {cat:"BROADCAST",q:"In a broadcast script, 'VO' stands for:",options:["Voice Over (anchor reads while video plays)","Video Only","Visual Output","Voice on Camera"],correct:0,exp:"VO = Voice Over. Anchor reads copy while video plays. The study guide asks about broadcast script abbreviations; MS = Medium Shot is another."},
+  {cat:"BROADCAST",q:"What are the 4 C's of broadcast writing?",options:["Clarity, Conciseness, Color, Conversational","Creativity, Clarity, Correctness, Conciseness","Context, Clarity, Currency, Conflict","Completeness, Clarity, Color, Currency"],correct:0,exp:"4 C's: Clarity, Conciseness, Color, Conversational. The study guide also mentions two extra C's: Credibility and Currency (timeliness)."},
+  {cat:"BROADCAST",q:"What is the 3-part dramatic unity structure of broadcast writing?",options:["Exposition, Conflict, Resolution","Lead, Body, Kicker","Intro, Development, Conclusion","Headline, Story, Tag"],correct:0,exp:"Dramatic unity: Exposition (who, what, where, when) → Conflict (the problem) → Resolution (outcome or next step). Specifically asked in the study guide for broadcast."},
+  {cat:"AP STYLE",q:"Which is the correct AP style date? (Study guide example)",options:["Feb. 7, 1964","February 7th, 1964","Feb 7, 1964","February 7 1964"],correct:0,exp:"AP: abbreviate the month with a specific date (except March, April, May, June, July). No ordinal suffix. Comma after day. 'Feb. 7, 1964' is the study guide's own example."},
+  {cat:"AP STYLE",q:"Which address is the AP style example from the study guide?",options:["1060 W. Addison St.","10-60 West Addison Street","1060 West Addison Street","1060 W Addison St"],correct:0,exp:"The study guide gives '1060 W. Addison St.' as the AP example. AP abbreviates direction (W.) and suffix (St.) with a house number present."},
+  {cat:"AP STYLE",q:"Does AP style add periods to 'am' and 'pm'?",options:["Yes — a.m. and p.m.","No — am and pm","Only for p.m.","Only in headlines"],correct:0,exp:"YES. AP uses a.m. and p.m. with periods, all lowercase. The study guide directly asks this."},
+  {cat:"AP STYLE",q:"Numbers one through nine in AP style are:",options:["Spelled out: 'one,' 'five,' 'nine'","Numerals: '1,' '5,' '9'","Either is acceptable","Always Roman numerals"],correct:0,exp:"AP spells out one through nine; numerals for 10 and above. Exceptions that always use numerals: ages, addresses, percentages, money, measurements."},
+  {cat:"AP STYLE",q:"In AP style, a formal title DIRECTLY BEFORE a name is:",options:["Capitalized: 'President Biden'","Lowercase: 'president Biden'","Always abbreviated","Always omitted"],correct:0,exp:"AP capitalizes formal titles directly before a name. Lowercase when after the name or standing alone."},
+  {cat:"COPYEDITING",q:"What does the 'tr' copyediting mark mean?",options:["Transpose (switch order of letters or words)","Delete text","Insert text","Capitalize"],correct:0,exp:"'tr' = transpose. Two adjacent letters or words should be switched. Used in both Working With Words and the AP Stylebook."},
+  {cat:"COPYEDITING",q:"What does the 'lc' copyediting mark mean?",options:["Make lowercase","Capitalize","Delete","Insert space"],correct:0,exp:"'lc' = lowercase. AP Stylebook also uses a single slash (/). Either variation may appear on the exam."},
+  {cat:"COPYEDITING",q:"What does the 'sp' copyediting mark mean?",options:["Spell out the word or abbreviation","Speed edit","Separate the words","Special instruction"],correct:0,exp:"'sp' = spell out the full word: 'St.' → 'Street'; '3rd' → 'third'. Used in both Working With Words and the AP Stylebook."},
+  {cat:"COPYEDITING",q:"The cardinal rule of editing says to:",options:["Look everything up","Trust your instincts","Follow the majority of sources","Edit as quickly as possible"],correct:0,exp:"'LOOK EVERYTHING UP' — the study guide states this explicitly as the cardinal rule of editing."},
+  {cat:"SVO",q:"Which sentence uses ACTIVE voice (S-V-O)?",options:["The mayor signed the bill.","The bill was signed by the mayor.","It was announced that the bill was signed.","The signing of the bill occurred."],correct:0,exp:"Active voice: Subject performs the action. 'The mayor [S] signed [V] the bill [O].' The study guide connects S-V-O to understanding active vs. passive voice."},
+  {cat:"SVO",q:"Which sentence uses PASSIVE voice?",options:["The bill was approved by the council.","The council approved the bill.","The mayor vetoed the measure.","Protesters marched on City Hall."],correct:0,exp:"Passive voice: object becomes subject with a 'to be' verb. 'The bill was approved by the council.' Journalism strongly prefers active voice."},
+  {cat:"QUOTING",q:"According to the study guide, you should NOT quote:",options:["Facts that could simply be paraphrased","Colorful or memorable language","Strong personal opinions","Emotional statements unique to the source"],correct:0,exp:"Study guide: 'DON'T QUOTE FACTS!' Facts should be paraphrased. Quote colorful language, strong opinion, emotional statements — things only the source could say that way."},
+  {cat:"MEDIA ETHICS",q:"The current demographic reality in the U.S. is described as:",options:["Multiculturalism","Pluralism","Globalism","Diversity quotient"],correct:0,exp:"MULTICULTURALISM — stated directly in the study guide. Connected to Bias-related terms in Working With Words."},
+  {cat:"MEDIA ETHICS",q:"What distinguishes NEWS from INFORMATION?",options:["All news is information, but not all information is news","All information is news if accurate","News and information are the same","Only broadcast content qualifies as news"],correct:0,exp:"News has been selected, verified, and judged newsworthy through gatekeeping. Raw data and general knowledge are information, not necessarily news."},
+  {cat:"WRITING STYLE",q:"How long are most paragraphs in media writing?",options:["1–2 sentences","3–5 sentences","A full page","As long as the topic requires"],correct:0,exp:"1 to 2 sentences. The study guide asks this directly. Short paragraphs aid readability for audiences who scan."},
+  {cat:"BROADCAST",q:"How should broadcast copy write '1060 W. Addison St.'?",options:["10-60 West Addison Street","1060 W. Addison St.","1060 West Addison Street","10-60 W. Addison St."],correct:0,exp:"Broadcast: '10-60 West Addison Street.' No abbreviations; hyphen guides pronunciation. The study guide's exact broadcast example."},
+  {cat:"BROADCAST",q:"Broadcast scripts never split sentences across pages because:",options:["Anchors could lose their place mid-sentence live on air","It violates AP style","Sentences are too long for one page","It wastes airtime"],correct:0,exp:"Splitting mid-page risks the anchor losing their place during a live broadcast — a serious error. Explicit in the study guide's broadcast 'do not' list."}
+];
+
+/* STATE */
+const ST={
+  score:parseInt(localStorage.getItem('jmc_sc')||'0'),
+  best:parseInt(localStorage.getItem('jmc_bst')||'0'),
+  attempts:parseInt(localStorage.getItem('jmc_att')||'0'),
+  streak:0
+};
+function save(){
+  localStorage.setItem('jmc_sc',ST.score);
+  localStorage.setItem('jmc_bst',ST.best);
+  localStorage.setItem('jmc_att',ST.attempts);
+  document.getElementById('hS').textContent=ST.score;
+  document.getElementById('hB').textContent=ST.best;
+  document.getElementById('hA').textContent=ST.attempts;
+  document.getElementById('hST').textContent=ST.streak;
+}
+save();
+
+/* NAV */
+function showPanel(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
+}
+
+/* SHUFFLE HELPER — Fisher-Yates */
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+/* Shuffle the answer options for a question, return {options, correctIdx} */
+function shuffleAnswers(q){
+  const correctText=q.options[q.correct];
+  const shuffled=shuffle(q.options);
+  return{options:shuffled, correctIdx:shuffled.indexOf(correctText)};
+}
+
+/* FLASHCARDS */
+let fci=0,fff=false,fdk=[...FC];
+function renderFC(){
+  const c=fdk[fci];
+  document.getElementById('fc-tag').textContent=c.tag;
+  document.getElementById('fc-q').textContent=c.q;
+  document.getElementById('fc-a').textContent=c.a;
+  document.getElementById('fc-prog').textContent=`Card ${fci+1} of ${fdk.length}`;
+  document.getElementById('fci').classList.remove('fl');
+  fff=false;
+}
+function flipCard(){fff=!fff;document.getElementById('fci').classList.toggle('fl',fff);}
+function nextCard(){fci=(fci+1)%fdk.length;renderFC();}
+function prevCard(){fci=(fci-1+fdk.length)%fdk.length;renderFC();}
+function shuffleCards(){for(let i=fdk.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fdk[i],fdk[j]]=[fdk[j],fdk[i]];}fci=0;renderFC();}
+renderFC();
+
+/* SUMMARY BUILDER — shared by CE, AB, EX */
+function buildSummary(cfg){
+  // cfg: {results, total, scoreEl, ptsEl, msgEl, pillsEl, listEl, gradeEl?}
+  const correct=cfg.results.filter(r=>r.ok).length;
+  const missed=cfg.results.filter(r=>!r.ok);
+  const pct=Math.round((correct/cfg.total)*100);
+
+  // Grade / message
+  let grade,msg;
+  if(pct>=90){grade='A';msg='Excellent work — keep it up!';}
+  else if(pct>=80){grade='B';msg='Strong performance. Review missed items below.';}
+  else if(pct>=70){grade='C';msg='Passing, but study the missed questions carefully.';}
+  else{grade='D';msg='Review all modules, then retake this quiz.';}
+
+  if(cfg.gradeEl) document.getElementById(cfg.gradeEl).textContent=grade;
+  document.getElementById(cfg.scoreEl).textContent=`${correct} / ${cfg.total} correct  (${pct}%)`;
+  document.getElementById(cfg.msgEl).textContent=msg;
+
+  // Pills
+  const pillsEl=document.getElementById(cfg.pillsEl);
+  pillsEl.innerHTML=`<span class="sum-pill pill-ok">✓ ${correct} Correct</span><span class="sum-pill pill-miss">✗ ${missed.length} Missed</span>`;
+
+  // Item list
+  const listEl=document.getElementById(cfg.listEl);
+  listEl.innerHTML='';
+
+  if(missed.length===0){
+    listEl.innerHTML='<div style="text-align:center;padding:20px;font-style:italic;color:var(--gray);">Perfect score! All questions answered correctly. 🎉</div>';
+    return;
+  }
+
+  // Missed section
+  const missTitle=document.createElement('div');
+  missTitle.className='sum-sec-title sum-sec-miss';
+  missTitle.innerHTML=`<span>✗</span> Missed Questions (${missed.length})`;
+  listEl.appendChild(missTitle);
+
+  missed.forEach(r=>{
+    const item=document.createElement('div');
+    item.className='sum-item missed';
+    item.innerHTML=`
+      <div class="sum-q">${r.q}</div>
+      <div class="sum-row"><span class="sum-lbl lbl-you-miss">You answered</span><span class="sum-ans">${r.yourAnswer}</span></div>
+      <div class="sum-row"><span class="sum-lbl lbl-correct">Correct</span><span class="sum-ans">${r.correctAnswer}</span></div>
+      <div class="sum-exp-txt">${r.exp}</div>`;
+    listEl.appendChild(item);
+  });
+
+  // Correct section (collapsed summary)
+  if(correct>0){
+    const okTitle=document.createElement('div');
+    okTitle.className='sum-sec-title sum-sec-ok';
+    okTitle.style.cursor='pointer';
+    okTitle.innerHTML=`<span>✓</span> Correct Questions (${correct}) <span style="margin-left:auto;font-size:.7rem;opacity:.6;">click to expand</span>`;
+    listEl.appendChild(okTitle);
+    const okList=document.createElement('div');
+    okList.style.display='none';
+    cfg.results.filter(r=>r.ok).forEach(r=>{
+      const item=document.createElement('div');
+      item.className='sum-item correct';
+      item.innerHTML=`<div class="sum-q">${r.q}</div><div class="sum-row"><span class="sum-lbl lbl-you-ok">Your answer</span><span class="sum-ans">${r.correctAnswer}</span></div>`;
+      okList.appendChild(item);
+    });
+    okTitle.onclick=()=>{okList.style.display=okList.style.display==='none'?'block':'none';};
+    listEl.appendChild(okList);
+  }
+}
+
+/* GENERIC QUIZ BUILDER — shuffles answers every render */
+function buildQ(cfg){
+  const q=cfg.qs[cfg.idx];
+  const {options, correctIdx}=shuffleAnswers(q);
+  // Store shuffled correct index on the cfg so the answer handler can reference it
+  cfg.currentCorrectIdx=correctIdx;
+  cfg.currentOptions=options;
+  cfg.currentQ=q;
+
+  document.getElementById(cfg.cat).textContent=q.cat||'Copyediting';
+  document.getElementById(cfg.num).textContent=`Q ${cfg.idx+1} of ${cfg.qs.length}`;
+  document.getElementById(cfg.q).textContent=q.q;
+  document.getElementById(cfg.exp).classList.remove('show');
+  document.getElementById(cfg.nxt).classList.remove('show');
+  cfg.ans.v=false;
+
+  const grid=document.getElementById(cfg.grid);
+  grid.innerHTML='';
+  ['A','B','C','D'].forEach((l,i)=>{
+    if(i>=options.length)return;
+    const btn=document.createElement('button');
+    btn.className='abtn';
+    btn.innerHTML=`<span class="altr">${l}</span>${options[i]}`;
+    btn.onclick=()=>{
+      if(cfg.ans.v)return;
+      cfg.ans.v=true;
+      grid.querySelectorAll('.abtn').forEach((b,j)=>{b.disabled=true;if(j===correctIdx)b.classList.add('correct');});
+      const ok=(i===correctIdx);
+      if(!ok)btn.classList.add('incorrect');
+      if(ok){ST.streak++;ST.score+=2;if(ST.score>ST.best)ST.best=ST.score;}else{ST.streak=0;}
+      ST.attempts++;save();
+      document.getElementById(cfg.expt).textContent=q.exp;
+      document.getElementById(cfg.exp).classList.add('show');
+      document.getElementById(cfg.nxt).classList.add('show');
+      // Record result for summary
+      cfg.results.push({
+        ok,
+        q:q.q,
+        yourAnswer:options[i],
+        correctAnswer:options[correctIdx],
+        exp:q.exp,
+        cat:q.cat||'Copyediting'
+      });
+    };
+    grid.appendChild(btn);
+  });
+}
+
+/* ---- COPYEDITING ---- */
+let cIdx=0,cAns={v:false},cResults=[];
+function renderCE(){
+  document.getElementById('ce-sum').classList.remove('show');
+  document.querySelector('#panel-ce .qcard').style.display='';
+  buildQ({qs:CE,idx:cIdx,cat:'ce-cat',num:'ce-num',q:'ce-q',grid:'ce-ans',exp:'ce-exp',expt:'ce-expt',nxt:'ce-nxt',ans:cAns,results:cResults});
+}
+function nextCE(){
+  cIdx++;
+  if(cIdx>=CE.length){
+    // Show summary
+    document.querySelector('#panel-ce .qcard').style.display='none';
+    document.getElementById('ce-nxt').classList.remove('show');
+    document.getElementById('ce-sum').classList.add('show');
+    buildSummary({results:cResults,total:CE.length,gradeEl:'ce-sum-pct',scoreEl:'ce-sum-pts',msgEl:'ce-sum-msg',pillsEl:'ce-sum-pills',listEl:'ce-sum-list'});
+    return;
+  }
+  renderCE();
+}
+function restartCE(){cIdx=0;cResults=[];document.getElementById('ce-sum').classList.remove('show');document.querySelector('#panel-ce .qcard').style.display='';renderCE();}
+renderCE();
+
+/* ---- AP vs BROADCAST ---- */
+let abIdx=0,abAns={v:false},abResults=[];
+function renderAB(){
+  document.getElementById('ab-sum').classList.remove('show');
+  document.querySelector('#panel-ab .qcard').style.display='';
+  buildQ({qs:AB,idx:abIdx,cat:'ab-cat',num:'ab-num',q:'ab-q',grid:'ab-ans',exp:'ab-exp',expt:'ab-expt',nxt:'ab-nxt',ans:abAns,results:abResults});
+  document.getElementById('ab-nxt').classList.add('show');
+}
+function nextAB(){
+  abIdx++;
+  if(abIdx>=AB.length){
+    document.querySelector('#panel-ab .qcard').style.display='none';
+    document.getElementById('ab-nxt').classList.remove('show');
+    document.getElementById('ab-sum').classList.add('show');
+    buildSummary({results:abResults,total:AB.length,gradeEl:'ab-sum-pct',scoreEl:'ab-sum-pts',msgEl:'ab-sum-msg',pillsEl:'ab-sum-pills',listEl:'ab-sum-list'});
+    return;
+  }
+  renderAB();
+}
+function restartAB(){abIdx=0;abResults=[];document.getElementById('ab-sum').classList.remove('show');document.querySelector('#panel-ab .qcard').style.display='';renderAB();}
+renderAB();
+
+/* ---- EXAM ---- */
+let eDk=[],eI=0,eSc=0,eSt=0,eAns={v:false},eResults=[];
+function startExam(){
+  eDk=[...EX];
+  for(let i=eDk.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[eDk[i],eDk[j]]=[eDk[j],eDk[i]];}
+  eI=0;eSc=0;eSt=0;eResults=[];ST.attempts++;save();
+  document.getElementById('ex-start').style.display='none';
+  document.getElementById('ex-res').classList.remove('show');
+  document.getElementById('ex-active').style.display='block';
+  renderEX();
+}
+
+function renderEX(){
+  const q=eDk[eI];
+  const {options,correctIdx}=shuffleAnswers(q);
+
+  document.getElementById('e-cat').textContent=q.cat;
+  document.getElementById('e-num').textContent=`Q ${eI+1} · 2 pts`;
+  document.getElementById('eqn').textContent=eI+1;
+  document.getElementById('esc').textContent=eSc;
+  document.getElementById('estr').textContent=eSt;
+  document.getElementById('epf').style.width=`${(eI/50)*100}%`;
+  document.getElementById('e-exp').classList.remove('show');
+  document.getElementById('ex-nxt').classList.remove('show');
+  eAns.v=false;
+  document.getElementById('e-q').textContent=q.q;
+
+  const grid=document.getElementById('e-ans');
+  grid.innerHTML='';
+  ['A','B','C','D'].forEach((l,i)=>{
+    if(i>=options.length)return;
+    const btn=document.createElement('button');
+    btn.className='abtn';
+    btn.innerHTML=`<span class="altr">${l}</span>${options[i]}`;
+    btn.onclick=()=>{
+      if(eAns.v)return;
+      eAns.v=true;
+      grid.querySelectorAll('.abtn').forEach((b,j)=>{b.disabled=true;if(j===correctIdx)b.classList.add('correct');});
+      const ok=(i===correctIdx);
+      if(!ok)btn.classList.add('incorrect');
+      if(ok){eSc+=2;eSt++;ST.streak++;}else{eSt=0;ST.streak=0;}
+      document.getElementById('esc').textContent=eSc;
+      document.getElementById('estr').textContent=eSt;
+      document.getElementById('e-expt').textContent=q.exp;
+      document.getElementById('e-exp').classList.add('show');
+      document.getElementById('ex-nxt').classList.add('show');
+      eResults.push({ok,q:q.q,yourAnswer:options[i],correctAnswer:options[correctIdx],exp:q.exp,cat:q.cat});
+      save();
+    };
+    grid.appendChild(btn);
+  });
+}
+
+function nextEX(){
+  eI++;
+  if(eI>=eDk.length){showRes();return;}
+  renderEX();
+}
+
+function showRes(){
+  document.getElementById('ex-active').style.display='none';
+  const p=eSc;
+  let g,m;
+  if(p>=93){g='A';m='Excellent — you are exam-ready.';}
+  else if(p>=90){g='A−';m='Outstanding. Review any missed questions.';}
+  else if(p>=87){g='B+';m='Strong work. Review the categories you missed.';}
+  else if(p>=83){g='B';m='Good foundation. Keep drilling weak areas.';}
+  else if(p>=80){g='B−';m='Passing, but more practice will help.';}
+  else if(p>=70){g='C';m='Needs improvement — revisit the flashcards.';}
+  else{g='D';m='Review all modules and retake the exam.';}
+  document.getElementById('rg').textContent=g;
+  document.getElementById('rs').textContent=`${eSc} / 100 points`;
+  document.getElementById('rm').textContent=m;
+  if(eSc>ST.best){ST.best=eSc;save();}
+  document.getElementById('ex-res').classList.add('show');
+  buildSummary({results:eResults,total:EX.length,scoreEl:'rs',msgEl:'rm',pillsEl:'ex-sum-pills',listEl:'ex-sum-list'});
+}
+
+function resetExam(){
+  document.getElementById('ex-res').classList.remove('show');
+  document.getElementById('ex-start').style.display='block';
+}
+</script>
+</body>
+</html>
